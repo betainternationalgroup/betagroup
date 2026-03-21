@@ -222,6 +222,41 @@ export const translations = {
       t2: { quote: "Very professional with deep expertise to support entrepreneurs. I highly recommend.", author: "Fanny Lor", role: "Entrepreneur, Betel.work" },
       t3: { quote: "The experience and expertise in business allowed us to present an excellent business plan.", author: "Pascal Metellus", role: "Financial Advisor" },
     },
+    caseStudies: {
+      badge: "Case Studies",
+      title: "Concrete results for our clients",
+      subtitle: "Discover how we helped organizations transform through artificial intelligence.",
+      items: [
+        {
+          client: "Box Pam",
+          industry: "Commerce & Logistics",
+          challenge: "Box Pam needed to optimize operational processes and reduce delivery times in a highly competitive market.",
+          solution: "Deployment of AI agents for supply chain automation, demand prediction and delivery route optimization.",
+          results: ["+40% productivity", "-30% operating costs", "2x faster delivery"],
+        },
+        {
+          client: "Betel.work",
+          industry: "Technology & HR",
+          challenge: "The platform needed to improve candidate-employer matching to reduce hiring time.",
+          solution: "Integration of a personalized AI recommendation engine and automation of the candidate pre-screening process.",
+          results: ["-60% hiring time", "+85% match rate", "3x more placements"],
+        },
+        {
+          client: "Cabinet Metellus & Associates",
+          industry: "Financial Services",
+          challenge: "The firm sought to modernize its financial analysis process and automate regulatory report generation.",
+          solution: "Creation of an advanced analytics platform with real-time dashboards and automated compliant report generation.",
+          results: ["-70% report time", "+95% accuracy", "Automated compliance"],
+        },
+        {
+          client: "E-No Solutions",
+          industry: "Industry & Manufacturing",
+          challenge: "E-No needed to reduce machine downtime and optimize preventive maintenance in production facilities.",
+          solution: "Implementation of an AI-based predictive maintenance system analyzing real-time IoT data.",
+          results: ["-45% downtime", "+25% machine lifespan", "ROI in 4 months"],
+        },
+      ],
+    },
     cta: {
       title: "Ready to transform your business with AI?",
       subtitle: "Schedule a free call with our experts to discuss your needs and discover how artificial intelligence can propel your organization.",
