@@ -84,6 +84,41 @@ export const translations = {
       t2: { quote: "Très professionnel avec une expertise approfondie pour soutenir les entrepreneurs. Je recommande fortement.", author: "Fanny Lor", role: "Entrepreneur, Betel.work" },
       t3: { quote: "L'expérience et l'expertise en affaires nous ont permis de présenter un excellent plan d'affaires.", author: "Pascal Metellus", role: "Conseiller financier" },
     },
+    caseStudies: {
+      badge: "Études de cas",
+      title: "Des résultats concrets pour nos clients",
+      subtitle: "Découvrez comment nous avons aidé des organisations à se transformer grâce à l'intelligence artificielle.",
+      items: [
+        {
+          client: "Box Pam",
+          industry: "Commerce & Logistique",
+          challenge: "Box Pam avait besoin d'optimiser ses processus opérationnels et de réduire les délais de livraison dans un marché hautement compétitif.",
+          solution: "Déploiement d'agents IA pour l'automatisation de la chaîne logistique, prédiction de la demande et optimisation des routes de livraison.",
+          results: ["+40% productivité", "-30% coûts opérationnels", "Livraison 2x plus rapide"],
+        },
+        {
+          client: "Betel.work",
+          industry: "Technologie & RH",
+          challenge: "La plateforme devait améliorer le matching entre candidats et employeurs pour réduire le temps de recrutement.",
+          solution: "Intégration d'un moteur de recommandation IA personnalisé et automatisation du processus de présélection des candidats.",
+          results: ["-60% temps de recrutement", "+85% taux de matching", "3x plus de placements"],
+        },
+        {
+          client: "Cabinet Metellus & Associés",
+          industry: "Services financiers",
+          challenge: "Le cabinet cherchait à moderniser son processus d'analyse financière et à automatiser la génération de rapports réglementaires.",
+          solution: "Création d'une plateforme d'analytique avancée avec tableaux de bord en temps réel et génération automatisée de rapports conformes.",
+          results: ["-70% temps de rapport", "+95% précision", "Conformité automatisée"],
+        },
+        {
+          client: "E-No Solutions",
+          industry: "Industrie & Manufacturier",
+          challenge: "E-No devait réduire les temps d'arrêt machines et optimiser la maintenance préventive dans ses installations de production.",
+          solution: "Mise en place d'un système de maintenance prédictive basé sur l'IA analysant les données IoT en temps réel.",
+          results: ["-45% temps d'arrêt", "+25% durée de vie machines", "ROI en 4 mois"],
+        },
+      ],
+    },
     cta: {
       title: "Prêt à transformer votre entreprise avec l'IA?",
       subtitle: "Planifiez un appel gratuit avec nos experts pour discuter de vos besoins et découvrir comment l'intelligence artificielle peut propulser votre organisation.",
