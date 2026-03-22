@@ -1,10 +1,17 @@
+import { useState } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, FileText } from "lucide-react";
+import TypewriterText from "@/components/TypewriterText";
+import ContactFormDialog from "@/components/ContactFormDialog";
+import VideoDialog from "@/components/VideoDialog";
+import aiAgenticImg from "@/assets/ai-agentic.jpg";
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  const [contactOpen, setContactOpen] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
 
   return (
     <section className="relative min-h-screen flex items-center bg-hero overflow-hidden pt-20">
@@ -30,7 +37,9 @@ const HeroSection = () => {
           >
             {t.hero.title1}
             <br />
-            <span className="text-gradient">{t.hero.titleAccent}</span>
+            <span className="text-gradient">
+              <TypewriterText text={t.hero.titleAccent} speed={50} />
+            </span>
           </motion.h1>
 
           <motion.p
@@ -53,19 +62,44 @@ const HeroSection = () => {
                 {t.hero.cta1} <ArrowRight size={20} />
               </Button>
             </a>
-            <a href="#services">
-              <Button size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/5 px-8 py-6 text-lg gap-2 w-full sm:w-auto">
-                <Play size={18} /> {t.hero.cta2}
-              </Button>
-            </a>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/5 px-8 py-6 text-lg gap-2"
+              onClick={() => setContactOpen(true)}
+            >
+              <FileText size={18} /> {t.hero.cta2}
+            </Button>
+          </motion.div>
+
+          {/* Video Thumbnail */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.7 }}
+            className="mt-14 max-w-2xl mx-auto cursor-pointer group"
+            onClick={() => setVideoOpen(true)}
+          >
+            <div className="relative rounded-2xl overflow-hidden border border-electric/20 shadow-2xl shadow-electric/10">
+              <img
+                src={aiAgenticImg}
+                alt="AI Agents - Beta International"
+                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-background/30 flex items-center justify-center group-hover:bg-background/20 transition-colors duration-300">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-electric/90 flex items-center justify-center shadow-lg shadow-electric/30 group-hover:scale-110 transition-transform duration-300">
+                  <Play className="w-7 h-7 md:w-9 md:h-9 text-primary-foreground ml-1" fill="currentColor" />
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="grid grid-cols-3 gap-8 mt-20 max-w-xl mx-auto"
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="grid grid-cols-3 gap-8 mt-16 max-w-xl mx-auto"
           >
             {[
               { value: t.hero.stat1, label: t.hero.stat1Label },
@@ -80,6 +114,9 @@ const HeroSection = () => {
           </motion.div>
         </div>
       </div>
+
+      <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} />
+      <VideoDialog open={videoOpen} onOpenChange={setVideoOpen} />
     </section>
   );
 };
