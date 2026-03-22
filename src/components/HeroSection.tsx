@@ -10,7 +10,6 @@ import HeroCarousel from "@/components/HeroCarousel";
 const HeroSection = () => {
   const { t } = useLanguage();
   const [contactOpen, setContactOpen] = useState(false);
-  const [videoOpen, setVideoOpen] = useState(false);
 
   return (
     <section className="relative min-h-screen flex items-center bg-hero overflow-hidden pt-20">
