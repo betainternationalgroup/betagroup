@@ -53,20 +53,14 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex justify-center"
           >
-            <a href="https://calendly.com/bruner" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-electric hover:bg-glow text-primary-foreground font-semibold px-8 py-6 text-lg gap-2 w-full sm:w-auto">
-                {t.hero.cta1} <ArrowRight size={20} />
-              </Button>
-            </a>
             <Button
               size="lg"
-              variant="outline"
-              className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/5 px-8 py-6 text-lg gap-2"
+              className="bg-electric hover:bg-glow text-primary-foreground font-semibold px-8 py-6 text-lg gap-2"
               onClick={() => setContactOpen(true)}
             >
-              <FileText size={18} /> {t.hero.cta2}
+              {t.hero.cta2} <ArrowRight size={20} />
             </Button>
           </motion.div>
 
