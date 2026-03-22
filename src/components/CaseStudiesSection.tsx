@@ -9,6 +9,7 @@ const iconMap = [TrendingUp, Clock, DollarSign, Users, BarChart3, Zap];
 
 const CaseStudiesSection = () => {
   const { t, lang } = useLanguage();
+  const [calOpen, setCalOpen] = useState(false);
   const cases = t.caseStudies;
 
   return (
