@@ -184,12 +184,12 @@ export const translations = {
   en: {
     nav: {
       services: "Services",
+      solutions: "Solutions",
       why: "Why Beta",
-      compliance: "Compliance",
-      team: "Team",
-      testimonials: "Testimonials",
+      caseStudies: "Case Studies",
       contact: "Contact",
       cta: "Book a call",
+      slogan: "Equipping businesses for the AI Era",
     },
     hero: {
       badge: "AI Solutions developed in Quebec 🇨🇦",

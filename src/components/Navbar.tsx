@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logoImg from "@/assets/logo-beta.png";
 
 const Navbar = () => {
   const { lang, setLang, t } = useLanguage();
@@ -9,17 +10,24 @@ const Navbar = () => {
 
   const links = [
     { href: "#services", label: t.nav.services },
+    { href: "#solutions", label: t.nav.solutions },
     { href: "#why", label: t.nav.why },
-    { href: "#compliance", label: t.nav.compliance },
-    { href: "#team", label: t.nav.team },
-    { href: "#testimonials", label: t.nav.testimonials },
+    { href: "#case-studies", label: t.nav.caseStudies },
   ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-navy-dark/90 backdrop-blur-xl border-b border-primary/10">
       <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between h-16 lg:h-20">
-        <a href="#" className="font-display text-2xl font-bold text-primary-foreground tracking-tight">
-          Beta<span className="text-electric">.</span>
+        <a href="#" className="flex items-center gap-2">
+          <img src={logoImg} alt="Beta International" className="h-9 w-auto" />
+          <div className="flex flex-col">
+            <span className="font-display text-2xl font-bold text-primary-foreground tracking-tight leading-none">
+              Beta<span className="text-electric">.</span>
+            </span>
+            <span className="text-[9px] text-primary-foreground/50 font-medium tracking-wide leading-none mt-0.5">
+              {t.nav.slogan}
+            </span>
+          </div>
         </a>
 
         {/* Desktop */}
