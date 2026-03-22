@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ClientLogos from "@/components/ClientLogos";
 import ServicesSection from "@/components/ServicesSection";
+import SolutionsSection from "@/components/SolutionsSection";
 import WhySection from "@/components/WhySection";
 import ComplianceSection from "@/components/ComplianceSection";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
