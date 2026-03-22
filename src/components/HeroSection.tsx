@@ -2,11 +2,10 @@ import { useState } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Play, FileText } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import TypewriterText from "@/components/TypewriterText";
 import ContactFormDialog from "@/components/ContactFormDialog";
-import VideoDialog from "@/components/VideoDialog";
-import aiAgenticImg from "@/assets/ai-agentic.jpg";
+import HeroCarousel from "@/components/HeroCarousel";
 
 const HeroSection = () => {
   const { t } = useLanguage();
