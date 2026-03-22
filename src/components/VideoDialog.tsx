@@ -9,6 +9,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 interface VideoDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  customUrl?: string;
 }
 
 const VIDEO_URLS = {
@@ -16,8 +17,9 @@ const VIDEO_URLS = {
   en: "https://www.youtube.com/embed/6rklfe9S27o",
 };
 
-const VideoDialog = ({ open, onOpenChange }: VideoDialogProps) => {
+const VideoDialog = ({ open, onOpenChange, customUrl }: VideoDialogProps) => {
   const { lang } = useLanguage();
+  const videoSrc = customUrl || VIDEO_URLS[lang];
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -31,7 +33,7 @@ const VideoDialog = ({ open, onOpenChange }: VideoDialogProps) => {
           <div className="relative w-full aspect-video rounded-lg overflow-hidden">
             {open && (
               <iframe
-                src={`${VIDEO_URLS[lang]}?autoplay=1&rel=0`}
+                src={`${videoSrc}?autoplay=1&rel=0`}
                 className="absolute inset-0 w-full h-full border-0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

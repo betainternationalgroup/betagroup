@@ -96,7 +96,6 @@ const HeroSection = () => {
       </div>
 
       <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} />
-      <VideoDialog open={videoOpen} onOpenChange={setVideoOpen} />
     </section>
   );
 };
