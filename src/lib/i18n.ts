@@ -4,12 +4,12 @@ export const translations = {
   fr: {
     nav: {
       services: "Services",
+      solutions: "Solutions",
       why: "Pourquoi Beta",
-      compliance: "Conformité",
-      team: "Équipe",
-      testimonials: "Témoignages",
+      caseStudies: "Études de cas",
       contact: "Contact",
       cta: "Prendre rendez-vous",
+      slogan: "Équiper les entreprises à l'Ère de l'IA",
     },
     hero: {
       badge: "Solutions IA développées au Québec 🇨🇦",
