@@ -64,26 +64,14 @@ const HeroSection = () => {
             </Button>
           </motion.div>
 
-          {/* Video Thumbnail */}
+          {/* Carousel */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7 }}
-            className="mt-14 max-w-2xl mx-auto cursor-pointer group"
-            onClick={() => setVideoOpen(true)}
+            className="mt-14 max-w-2xl mx-auto"
           >
-            <div className="relative rounded-2xl overflow-hidden border border-electric/20 shadow-2xl shadow-electric/10">
-              <img
-                src={aiAgenticImg}
-                alt="AI Agents - Beta International"
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-background/30 flex items-center justify-center group-hover:bg-background/20 transition-colors duration-300">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-electric/90 flex items-center justify-center shadow-lg shadow-electric/30 group-hover:scale-110 transition-transform duration-300">
-                  <Play className="w-7 h-7 md:w-9 md:h-9 text-primary-foreground ml-1" fill="currentColor" />
-                </div>
-              </div>
-            </div>
+            <HeroCarousel />
           </motion.div>
 
           {/* Stats */}
