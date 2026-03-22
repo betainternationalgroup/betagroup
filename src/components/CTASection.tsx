@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, FileText } from "lucide-react";
+import CalPopupDialog from "@/components/CalPopupDialog";
 
 const CTASection = () => {
   const { t } = useLanguage();
+  const [calOpen, setCalOpen] = useState(false);
 
   return (
     <section className="py-24 lg:py-32 relative z-10 bg-hero">
@@ -21,11 +24,9 @@ const CTASection = () => {
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-6">{t.cta.title}</h2>
           <p className="text-lg text-primary-foreground/60 mb-10">{t.cta.subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://calendly.com/bruner" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-electric hover:bg-glow text-primary-foreground font-semibold px-8 py-6 text-lg gap-2 w-full sm:w-auto">
-                {t.cta.button} <ArrowRight size={20} />
-              </Button>
-            </a>
+            <Button size="lg" className="bg-electric hover:bg-glow text-primary-foreground font-semibold px-8 py-6 text-lg gap-2 w-full sm:w-auto" onClick={() => setCalOpen(true)}>
+              {t.cta.button} <ArrowRight size={20} />
+            </Button>
             <a href="https://share.hsforms.com/1pTFSfeIWSUWl86V-oNypbg45u1l" target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/5 px-8 py-6 text-lg gap-2 w-full sm:w-auto">
                 <FileText size={18} /> {t.cta.buttonAlt}
@@ -34,6 +35,7 @@ const CTASection = () => {
           </div>
         </motion.div>
       </div>
+      <CalPopupDialog open={calOpen} onOpenChange={setCalOpen} />
     </section>
   );
 };
