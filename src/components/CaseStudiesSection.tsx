@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { motion } from "framer-motion";
 import { ArrowUpRight, TrendingUp, Clock, DollarSign, Users, BarChart3, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import CalPopupDialog from "@/components/CalPopupDialog";
 
 const iconMap = [TrendingUp, Clock, DollarSign, Users, BarChart3, Zap];
 
