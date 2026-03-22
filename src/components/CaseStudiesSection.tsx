@@ -100,12 +100,13 @@ const CaseStudiesSection = () => {
           <Button
             size="lg"
             className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-xl px-8 gap-2"
-            onClick={() => window.open("https://calendly.com/beta-international", "_blank")}
+            onClick={() => setCalOpen(true)}
           >
             {lang === "fr" ? "Discuter de votre projet" : "Discuss your project"}
             <ArrowUpRight className="w-4 h-4" />
           </Button>
         </motion.div>
+        <CalPopupDialog open={calOpen} onOpenChange={setCalOpen} />
       </div>
     </section>
   );
