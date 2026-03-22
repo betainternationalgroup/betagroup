@@ -2,16 +2,14 @@ import { useState } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Play, FileText } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import TypewriterText from "@/components/TypewriterText";
 import ContactFormDialog from "@/components/ContactFormDialog";
-import VideoDialog from "@/components/VideoDialog";
-import aiAgenticImg from "@/assets/ai-agentic.jpg";
+import HeroCarousel from "@/components/HeroCarousel";
 
 const HeroSection = () => {
   const { t } = useLanguage();
   const [contactOpen, setContactOpen] = useState(false);
-  const [videoOpen, setVideoOpen] = useState(false);
 
   return (
     <section className="relative min-h-screen flex items-center bg-hero overflow-hidden pt-20">
@@ -55,43 +53,25 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex justify-center"
           >
-            <a href="https://calendly.com/bruner" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-electric hover:bg-glow text-primary-foreground font-semibold px-8 py-6 text-lg gap-2 w-full sm:w-auto">
-                {t.hero.cta1} <ArrowRight size={20} />
-              </Button>
-            </a>
             <Button
               size="lg"
-              variant="outline"
-              className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/5 px-8 py-6 text-lg gap-2"
+              className="bg-electric hover:bg-glow text-primary-foreground font-semibold px-8 py-6 text-lg gap-2"
               onClick={() => setContactOpen(true)}
             >
-              <FileText size={18} /> {t.hero.cta2}
+              {t.hero.cta2} <ArrowRight size={20} />
             </Button>
           </motion.div>
 
-          {/* Video Thumbnail */}
+          {/* Carousel */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7 }}
-            className="mt-14 max-w-2xl mx-auto cursor-pointer group"
-            onClick={() => setVideoOpen(true)}
+            className="mt-14 max-w-2xl mx-auto"
           >
-            <div className="relative rounded-2xl overflow-hidden border border-electric/20 shadow-2xl shadow-electric/10">
-              <img
-                src={aiAgenticImg}
-                alt="AI Agents - Beta International"
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-background/30 flex items-center justify-center group-hover:bg-background/20 transition-colors duration-300">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-electric/90 flex items-center justify-center shadow-lg shadow-electric/30 group-hover:scale-110 transition-transform duration-300">
-                  <Play className="w-7 h-7 md:w-9 md:h-9 text-primary-foreground ml-1" fill="currentColor" />
-                </div>
-              </div>
-            </div>
+            <HeroCarousel />
           </motion.div>
 
           {/* Stats */}
@@ -116,7 +96,6 @@ const HeroSection = () => {
       </div>
 
       <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} />
-      <VideoDialog open={videoOpen} onOpenChange={setVideoOpen} />
     </section>
   );
 };
