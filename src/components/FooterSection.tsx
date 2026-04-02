@@ -1,4 +1,5 @@
 import { useLanguage } from "@/hooks/useLanguage";
+import { Link } from "react-router-dom";
 import { Linkedin, Mail, Phone } from "lucide-react";
 
 const FooterSection = () => {
