@@ -42,6 +42,7 @@ const FooterSection = () => {
             <ul className="space-y-2 text-sm text-primary-foreground/50">
               <li><a href="#team" className="hover:text-electric transition-colors">{t.footer.about}</a></li>
               <li><a href="#" className="hover:text-electric transition-colors">{t.footer.blog}</a></li>
+              <li><Link to="/conformite" className="hover:text-electric transition-colors">Conformité</Link></li>
               <li><a href="#" className="hover:text-electric transition-colors">{t.footer.privacy}</a></li>
             </ul>
           </div>
