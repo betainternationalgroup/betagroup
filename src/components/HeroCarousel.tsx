@@ -13,11 +13,13 @@ type Slide =
 
 const slides: Record<"fr" | "en", Slide[]> = {
   fr: [
+    // https://youtu.be/tQ3uyVkkSns?si=4Fjz4J5Jg3l80ap6
     { type: "video", thumbnail: aiAgenticImg, videoId: "tQ3uyVkkSns" },
     { type: "video", thumbnail: aiCallcenterImg, videoId: "giE7I9iMPfg" },
     { type: "image", src: aiAgentImg, alt: "Agent IA – Beta International" },
   ],
   en: [
+    // https://youtu.be/6rklfe9S27o?si=keaartpDmVZEUByz
     { type: "video", thumbnail: aiAgenticImg, videoId: "6rklfe9S27o" },
     { type: "video", thumbnail: aiCallcenterImg, videoId: "giE7I9iMPfg" },
     { type: "image", src: aiAgentImg, alt: "AI Agent – Beta International" },
