@@ -1,10 +1,7 @@
 import { useLanguage } from "@/hooks/useLanguage";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import TypewriterText from "@/components/TypewriterText";
 import HeroCarousel from "@/components/HeroCarousel";
-import { openZanjForm } from "@/lib/openZanjForm";
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -53,13 +50,20 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex justify-center"
           >
-            <Button
-              size="lg"
-              className="bg-electric hover:bg-glow text-primary-foreground font-semibold px-8 py-6 text-lg gap-2"
-              onClick={() => openZanjForm("contact")}
+            <button
+              onClick={() => (window as any)._openForm?.('contact')}
+              style={{
+                background: '#1e3a8a',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '8px',
+                padding: '10px 20px',
+                fontSize: '14px',
+                cursor: 'pointer',
+              }}
             >
-              {t.hero.cta2} <ArrowRight size={20} />
-            </Button>
+              ✉ Demandez un Expert
+            </button>
           </motion.div>
 
           {/* Carousel */}
