@@ -1,15 +1,13 @@
-import { useState } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import TypewriterText from "@/components/TypewriterText";
-import ContactFormDialog from "@/components/ContactFormDialog";
 import HeroCarousel from "@/components/HeroCarousel";
+import { openZanjForm } from "@/lib/openZanjForm";
 
 const HeroSection = () => {
   const { t } = useLanguage();
-  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <section className="relative min-h-screen flex items-center bg-hero overflow-hidden pt-20">
@@ -58,7 +56,7 @@ const HeroSection = () => {
             <Button
               size="lg"
               className="bg-electric hover:bg-glow text-primary-foreground font-semibold px-8 py-6 text-lg gap-2"
-              onClick={() => setContactOpen(true)}
+              onClick={() => openZanjForm("contact")}
             >
               {t.hero.cta2} <ArrowRight size={20} />
             </Button>
@@ -94,8 +92,6 @@ const HeroSection = () => {
           </motion.div>
         </div>
       </div>
-
-      <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} />
     </section>
   );
 };
