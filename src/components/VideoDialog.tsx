@@ -1,9 +1,4 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useLanguage } from "@/hooks/useLanguage";
 
 interface VideoDialogProps {
@@ -23,24 +18,17 @@ const VideoDialog = ({ open, onOpenChange, customUrl }: VideoDialogProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[800px] bg-card border-border p-0 overflow-hidden">
-        <DialogHeader className="p-4 pb-0">
-          <DialogTitle className="font-display text-lg text-foreground">
-            {lang === "fr" ? "Découvrez nos solutions IA" : "Discover our AI solutions"}
-          </DialogTitle>
-        </DialogHeader>
-        <div className="p-4 pt-2">
-          <div className="relative w-full aspect-video rounded-lg overflow-hidden">
-            {open && (
-              <iframe
-                src={`${videoSrc}?autoplay=1&rel=0`}
-                className="absolute inset-0 w-full h-full border-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title="Beta International AI Solutions"
-              />
-            )}
-          </div>
+      <DialogContent className="sm:max-w-[900px] bg-black border-0 p-0 gap-0 overflow-hidden">
+        <div className="relative w-full aspect-video">
+          {open && (
+            <iframe
+              src={`${videoSrc}?autoplay=1&rel=0`}
+              className="absolute inset-0 w-full h-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title={lang === "fr" ? "Beta International — Solutions IA" : "Beta International — AI Solutions"}
+            />
+          )}
         </div>
       </DialogContent>
     </Dialog>
