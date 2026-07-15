@@ -1,10 +1,7 @@
 import { useLanguage } from "@/hooks/useLanguage";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import TypewriterText from "@/components/TypewriterText";
 import HeroCarousel from "@/components/HeroCarousel";
-import { openZanjForm } from "@/lib/openZanjForm";
 
 const HeroSection = () => {
   const { t } = useLanguage();
