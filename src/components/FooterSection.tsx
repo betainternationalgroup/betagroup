@@ -1,6 +1,6 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import { Link } from "react-router-dom";
-import { Linkedin, Mail, Phone } from "lucide-react";
+import { Linkedin, Mail, Phone, Calendar } from "lucide-react";
 
 const FooterSection = () => {
   const { t } = useLanguage();
@@ -23,6 +23,9 @@ const FooterSection = () => {
               </a>
               <a href="tel:+5145451030" className="w-10 h-10 rounded-lg bg-primary-foreground/5 flex items-center justify-center text-primary-foreground/50 hover:text-electric hover:bg-electric/10 transition-all">
                 <Phone size={18} />
+              </a>
+              <a href="https://cal.com/beta-group/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 h-10 px-4 rounded-lg bg-electric/10 text-electric hover:bg-electric hover:text-primary-foreground transition-all text-sm font-semibold">
+                <Calendar size={16} /> {t.nav.cta}
               </a>
             </div>
           </div>
