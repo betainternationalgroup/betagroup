@@ -46,6 +46,23 @@ const Navbar = () => {
                 {l.label}
               </a>
             ))}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-sm font-medium text-primary-foreground/70 hover:text-primary-foreground transition-colors flex items-center gap-1 outline-none">
+                {t.nav.tools} <ChevronDown size={14} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-navy-dark border-primary-foreground/10">
+                <DropdownMenuItem asChild>
+                  <a href="https://www.beta.international/calculator/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground focus:text-primary-foreground focus:bg-electric/10 cursor-pointer">
+                    {t.nav.toolsRoi}
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="https://beta-audit.lovable.app" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground focus:text-primary-foreground focus:bg-electric/10 cursor-pointer">
+                    {t.nav.toolsAudit}
+                  </a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <div className="flex items-center gap-2 ml-4">
               <button onClick={() => setLang("fr")} className={`text-xs font-bold px-2 py-1 rounded ${lang === "fr" ? "bg-electric text-primary-foreground" : "text-primary-foreground/50 hover:text-primary-foreground/80"}`}>FR</button>
               <button onClick={() => setLang("en")} className={`text-xs font-bold px-2 py-1 rounded ${lang === "en" ? "bg-electric text-primary-foreground" : "text-primary-foreground/50 hover:text-primary-foreground/80"}`}>EN</button>
@@ -69,6 +86,15 @@ const Navbar = () => {
                   {l.label}
                 </a>
               ))}
+              <div className="text-sm font-medium text-primary-foreground/70 pt-2 border-t border-primary-foreground/10">
+                {t.nav.tools}
+              </div>
+              <a href="https://www.beta.international/calculator/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="text-sm font-medium text-primary-foreground/50 hover:text-primary-foreground pl-3">
+                {t.nav.toolsRoi}
+              </a>
+              <a href="https://beta-audit.lovable.app" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="text-sm font-medium text-primary-foreground/50 hover:text-primary-foreground pl-3">
+                {t.nav.toolsAudit}
+              </a>
               <div className="flex gap-2">
                 <button onClick={() => setLang("fr")} className={`text-xs font-bold px-2 py-1 rounded ${lang === "fr" ? "bg-electric text-primary-foreground" : "text-primary-foreground/50"}`}>FR</button>
                 <button onClick={() => setLang("en")} className={`text-xs font-bold px-2 py-1 rounded ${lang === "en" ? "bg-electric text-primary-foreground" : "text-primary-foreground/50"}`}>EN</button>
