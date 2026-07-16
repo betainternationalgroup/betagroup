@@ -2,6 +2,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { motion } from "framer-motion";
 import TypewriterText from "@/components/TypewriterText";
 import HeroCarousel from "@/components/HeroCarousel";
+import { openZanjForm } from "@/lib/openZanjForm";
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -51,7 +52,7 @@ const HeroSection = () => {
             className="flex justify-center"
           >
             <button
-              onClick={() => (window as any)._openForm?.('contact')}
+              onClick={() => openZanjForm('contact')}
               style={{
                 background: '#1e3a8a',
                 color: '#fff',
