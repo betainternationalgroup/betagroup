@@ -64,7 +64,7 @@ function ensureFormMarkup(): void {
       <div class="form-body">
         <div id="fOrgInfo" style="margin-bottom:14px"></div>
         <div class="form-field"><label>Nom *</label><input id="fc_name" placeholder="Votre nom complet"></div>
-        <div class="form-field"><label>Téléphone</label><input id="fc_phone" type="tel" placeholder="+1 514 000 0000"></div>
+        <div class="form-field"><label>Téléphone</label><input id="fc_phone" type="tel" placeholder="+1 514 545 1030" value="+1 514 545 1030"></div>
         <div class="form-field"><label>Courriel *</label><input id="fc_email" type="email" placeholder="vous@email.com"></div>
         <div class="form-field"><label>Message</label><textarea id="fc_msg" placeholder="Comment pouvons-nous vous aider?"></textarea></div>
         <div class="form-field" id="fc_captcha_wrap">
