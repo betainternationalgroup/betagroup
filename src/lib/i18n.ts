@@ -120,6 +120,13 @@ export const translations = {
         bio: "Diplômé de Harvard Business School en IA, Bruner cumule plus de 25 ans d'expérience en stratégie d'affaires et transformation numérique. Entrepreneur visionnaire, il aide les organisations à adopter l'IA de manière responsable et efficace.",
         credentials: ["Harvard Business School — IA", "25+ ans en stratégie d'affaires", "Expert en transformation numérique", "Auteur & Conférencier"],
       },
+      jocelin: {
+        name: "Jocelin Dupenor",
+        role: "Directeur — Gestion de projets & TI",
+        bio: "Gestionnaire de projets et professionnel TI chevronné avec plus de 20 ans d'expérience dans la livraison de solutions technologiques complexes. Jocelin dirige la mise en œuvre de nos projets IA en assurant qualité, respect des échéanciers et succès mesurable pour nos clients.",
+        credentials: ["20+ ans en gestion de projets", "Expert TI & transformation", "Livraison agile & PMP", "Solutions entreprise"],
+        linkedin: "https://www.linkedin.com/in/jocelin-dupenor-a4631037/",
+      },
       teamMembers: "Notre équipe multidisciplinaire comprend des experts en gestion de projets, technologies de l'information, science des données et développement logiciel — tous unis par la passion de l'innovation.",
     },
     testimonials: {
@@ -302,6 +309,13 @@ export const translations = {
         role: "Founder & CEO",
         bio: "A Harvard Business School graduate in AI, Bruner has over 25 years of experience in business strategy and digital transformation. A visionary entrepreneur, he helps organizations adopt AI responsibly and effectively.",
         credentials: ["Harvard Business School — AI", "25+ years in business strategy", "Digital transformation expert", "Author & Speaker"],
+      },
+      jocelin: {
+        name: "Jocelin Dupenor",
+        role: "Director — Project Management & IT",
+        bio: "Seasoned project manager and IT professional with over 20 years of experience delivering complex technology solutions. Jocelin leads the execution of our AI projects, ensuring quality, on-time delivery and measurable success for our clients.",
+        credentials: ["20+ years in project management", "IT & transformation expert", "Agile delivery & PMP", "Enterprise solutions"],
+        linkedin: "https://www.linkedin.com/in/jocelin-dupenor-a4631037/",
       },
       teamMembers: "Our multidisciplinary team includes experts in project management, information technology, data science and software development — all united by a passion for innovation.",
     },
