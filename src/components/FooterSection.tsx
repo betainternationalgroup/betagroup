@@ -21,8 +21,8 @@ const FooterSection = () => {
               <a href="mailto:equipe@beta.international" className="w-10 h-10 rounded-lg bg-primary-foreground/5 flex items-center justify-center text-primary-foreground/50 hover:text-electric hover:bg-electric/10 transition-all">
                 <Mail size={18} />
               </a>
-              <a href="tel:+5145451030" className="w-10 h-10 rounded-lg bg-primary-foreground/5 flex items-center justify-center text-primary-foreground/50 hover:text-electric hover:bg-electric/10 transition-all">
-                <Phone size={18} />
+              <a href="tel:+15145451030" className="inline-flex items-center gap-2 h-10 px-3 rounded-lg bg-primary-foreground/5 text-primary-foreground/70 hover:text-electric hover:bg-electric/10 transition-all text-sm font-medium">
+                <Phone size={16} /> +1 514 545 1030
               </a>
               <a href="https://cal.com/beta-group/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 h-10 px-4 rounded-lg bg-electric/10 text-electric hover:bg-electric hover:text-primary-foreground transition-all text-sm font-semibold">
                 <Calendar size={16} /> {t.nav.cta}
