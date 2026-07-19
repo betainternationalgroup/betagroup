@@ -52,12 +52,12 @@ const Navbar = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-navy-dark border-primary-foreground/10">
                 <DropdownMenuItem asChild>
-                  <a href="https://www.beta.international/calculator/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground focus:text-primary-foreground focus:bg-electric/10 cursor-pointer">
+                  <a href="/outils/calculateur" className="text-primary-foreground/80 hover:text-primary-foreground focus:text-primary-foreground focus:bg-electric/10 cursor-pointer">
                     {t.nav.toolsRoi}
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <a href="https://beta-audit.lovable.app" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground focus:text-primary-foreground focus:bg-electric/10 cursor-pointer">
+                  <a href="/outils/audit" className="text-primary-foreground/80 hover:text-primary-foreground focus:text-primary-foreground focus:bg-electric/10 cursor-pointer">
                     {t.nav.toolsAudit}
                   </a>
                 </DropdownMenuItem>
@@ -89,10 +89,10 @@ const Navbar = () => {
               <div className="text-sm font-medium text-primary-foreground/70 pt-2 border-t border-primary-foreground/10">
                 {t.nav.tools}
               </div>
-              <a href="https://www.beta.international/calculator/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="text-sm font-medium text-primary-foreground/50 hover:text-primary-foreground pl-3">
+              <a href="/outils/calculateur" onClick={() => setOpen(false)} className="text-sm font-medium text-primary-foreground/50 hover:text-primary-foreground pl-3">
                 {t.nav.toolsRoi}
               </a>
-              <a href="https://beta-audit.lovable.app" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="text-sm font-medium text-primary-foreground/50 hover:text-primary-foreground pl-3">
+              <a href="/outils/audit" onClick={() => setOpen(false)} className="text-sm font-medium text-primary-foreground/50 hover:text-primary-foreground pl-3">
                 {t.nav.toolsAudit}
               </a>
               <div className="flex gap-2">

@@ -62,7 +62,6 @@ function ensureFormMarkup(): void {
         <button class="form-close" type="button" onclick="window._closeForms && window._closeForms()">×</button>
       </div>
       <div class="form-body">
-        <div id="fOrgInfo" style="margin-bottom:14px"></div>
         <div class="form-field"><label>Nom *</label><input id="fc_name" placeholder="Votre nom complet"></div>
         <div class="form-field"><label>Téléphone</label><input id="fc_phone" type="tel" placeholder="+1 514 545 1030" value="+1 514 545 1030"></div>
         <div class="form-field"><label>Courriel *</label><input id="fc_email" type="email" placeholder="vous@email.com"></div>
