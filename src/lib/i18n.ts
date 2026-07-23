@@ -197,6 +197,7 @@ export const translations = {
       services: "Services",
       solutions: "Solutions",
       why: "Why Beta",
+      home: "Home",
       caseStudies: "Case Studies",
       tools: "Tools",
       toolsRoi: "ROI Calculator",
