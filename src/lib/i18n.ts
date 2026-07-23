@@ -28,7 +28,7 @@ export const translations = {
       stat3Label: "Conforme & certifié",
     },
     services: {
-      title: "Nos services en intelligence artificielle",
+      title: "Nos solutions en intelligence artificielle",
       subtitle: "Des solutions concrètes qui génèrent des résultats mesurables pour votre organisation.",
       s1Title: "Agents IA & Automatisation",
       s1Desc: "Déployez des agents intelligents qui automatisent vos processus d'affaires, réduisent les coûts opérationnels et augmentent la productivité de vos équipes.",
@@ -218,7 +218,7 @@ export const translations = {
       stat3Label: "Compliant & certified",
     },
     services: {
-      title: "Our artificial intelligence services",
+      title: "Our artificial intelligence solutions",
       subtitle: "Concrete solutions that generate measurable results for your organization.",
       s1Title: "AI Agents & Automation",
       s1Desc: "Deploy intelligent agents that automate your business processes, reduce operational costs and increase team productivity.",
