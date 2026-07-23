@@ -13,7 +13,7 @@ const HeroSection = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-electric/5 blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto text-center lg:text-left">
+        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto text-center lg:text-left">
          <div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -68,24 +68,6 @@ const HeroSection = () => {
             </button>
           </motion.div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="grid grid-cols-3 gap-8 mt-16 max-w-xl mx-auto lg:mx-0"
-          >
-            {[
-              { value: t.hero.stat1, label: t.hero.stat1Label },
-              { value: t.hero.stat2, label: t.hero.stat2Label },
-              { value: t.hero.stat3, label: t.hero.stat3Label },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="font-display text-3xl md:text-4xl font-bold text-electric">{stat.value}</div>
-                <div className="text-xs md:text-sm text-primary-foreground/50 mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
          </div>
 
          {/* Carousel - right column on desktop */}
@@ -96,6 +78,25 @@ const HeroSection = () => {
            className="mt-14 lg:mt-0 max-w-2xl mx-auto lg:mx-0 w-full"
          >
            <HeroCarousel />
+         </motion.div>
+
+         {/* Stats — under the carousel on desktop */}
+         <motion.div
+           initial={{ opacity: 0, y: 40 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.8, delay: 0.9 }}
+           className="grid grid-cols-3 gap-8 mt-12 max-w-xl mx-auto lg:col-start-2 lg:mx-0"
+         >
+           {[
+             { value: t.hero.stat1, label: t.hero.stat1Label },
+             { value: t.hero.stat2, label: t.hero.stat2Label },
+             { value: t.hero.stat3, label: t.hero.stat3Label },
+           ].map((stat) => (
+             <div key={stat.label} className="text-center">
+               <div className="font-display text-3xl md:text-4xl font-bold text-electric">{stat.value}</div>
+               <div className="text-xs md:text-sm text-primary-foreground/50 mt-1">{stat.label}</div>
+             </div>
+           ))}
          </motion.div>
         </div>
       </div>
