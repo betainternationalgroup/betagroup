@@ -5,6 +5,7 @@ export const translations = {
     nav: {
       services: "Services",
       solutions: "Solutions",
+      home: "Accueil",
       why: "Pourquoi Beta",
       caseStudies: "Études de cas",
       tools: "Outils",
