@@ -5,6 +5,7 @@ export const translations = {
     nav: {
       services: "Services",
       solutions: "Solutions",
+      home: "Accueil",
       why: "Pourquoi Beta",
       caseStudies: "Études de cas",
       tools: "Outils",
@@ -196,6 +197,7 @@ export const translations = {
       services: "Services",
       solutions: "Solutions",
       why: "Why Beta",
+      home: "Home",
       caseStudies: "Case Studies",
       tools: "Tools",
       toolsRoi: "ROI Calculator",

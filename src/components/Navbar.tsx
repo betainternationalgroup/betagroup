@@ -17,6 +17,7 @@ const Navbar = () => {
   const [calOpen, setCalOpen] = useState(false);
 
   const links = [
+    { href: "#top", label: t.nav.home },
     { href: "#services", label: t.nav.services },
     { href: "#solutions", label: t.nav.solutions },
     { href: "#why", label: t.nav.why },

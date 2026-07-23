@@ -8,12 +8,13 @@ const HeroSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-screen flex items-center bg-hero overflow-hidden pt-20">
+    <section id="top" className="relative min-h-screen flex items-center bg-hero overflow-hidden pt-20">
       {/* Radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-electric/5 blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto text-center lg:text-left">
+         <div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -40,7 +41,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg md:text-xl text-primary-foreground/60 max-w-2xl mx-auto mb-10"
+            className="text-lg md:text-xl text-primary-foreground/60 max-w-2xl mx-auto lg:mx-0 mb-10"
           >
             {t.hero.subtitle}
           </motion.p>
@@ -49,7 +50,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex justify-center"
+            className="flex justify-center lg:justify-start"
           >
             <button
               onClick={() => openZanjForm('contact')}
@@ -67,22 +68,12 @@ const HeroSection = () => {
             </button>
           </motion.div>
 
-          {/* Carousel */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.7 }}
-            className="mt-14 max-w-2xl mx-auto"
-          >
-            <HeroCarousel />
-          </motion.div>
-
           {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="grid grid-cols-3 gap-8 mt-16 max-w-xl mx-auto"
+            className="grid grid-cols-3 gap-8 mt-16 max-w-xl mx-auto lg:mx-0"
           >
             {[
               { value: t.hero.stat1, label: t.hero.stat1Label },
@@ -95,6 +86,17 @@ const HeroSection = () => {
               </div>
             ))}
           </motion.div>
+         </div>
+
+         {/* Carousel - right column on desktop */}
+         <motion.div
+           initial={{ opacity: 0, y: 30 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.7, delay: 0.7 }}
+           className="mt-14 lg:mt-0 max-w-2xl mx-auto lg:mx-0 w-full"
+         >
+           <HeroCarousel />
+         </motion.div>
         </div>
       </div>
     </section>
