@@ -79,6 +79,25 @@ const HeroSection = () => {
          >
            <HeroCarousel />
          </motion.div>
+
+         {/* Stats — under the carousel on desktop */}
+         <motion.div
+           initial={{ opacity: 0, y: 40 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.8, delay: 0.9 }}
+           className="grid grid-cols-3 gap-8 mt-12 max-w-xl mx-auto lg:col-start-2 lg:mx-0"
+         >
+           {[
+             { value: t.hero.stat1, label: t.hero.stat1Label },
+             { value: t.hero.stat2, label: t.hero.stat2Label },
+             { value: t.hero.stat3, label: t.hero.stat3Label },
+           ].map((stat) => (
+             <div key={stat.label} className="text-center">
+               <div className="font-display text-3xl md:text-4xl font-bold text-electric">{stat.value}</div>
+               <div className="text-xs md:text-sm text-primary-foreground/50 mt-1">{stat.label}</div>
+             </div>
+           ))}
+         </motion.div>
         </div>
       </div>
     </section>
