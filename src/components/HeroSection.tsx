@@ -66,8 +66,16 @@ const HeroSection = () => {
            initial={{ opacity: 0, y: 30 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.7, delay: 0.7 }}
-           className="mt-14 lg:mt-0 max-w-2xl mx-auto lg:mx-0 w-full"
+           className="mt-14 lg:mt-0 max-w-2xl mx-auto lg:mx-0 w-full flex flex-col items-center lg:items-start"
          >
+           <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.6 }}
+             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/20 mb-4"
+           >
+             <span className="text-sm font-medium text-electric">{t.hero.badge}</span>
+           </motion.div>
            <HeroCarousel />
          </motion.div>
 
@@ -76,7 +84,7 @@ const HeroSection = () => {
            initial={{ opacity: 0, y: 40 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.8, delay: 0.9 }}
-           className="grid grid-cols-3 gap-8 mt-12 max-w-xl mx-auto lg:col-start-2 lg:mx-0"
+           className="grid grid-cols-3 gap-8 mt-4 max-w-xl mx-auto lg:col-start-2 lg:mx-0"
          >
            {[
              { value: t.hero.stat1, label: t.hero.stat1Label },
