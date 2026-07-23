@@ -17,7 +17,7 @@ export const translations = {
     },
     hero: {
       badge: "Solutions IA développées au Québec 🇨🇦",
-      title1: "Propulsez votre entreprise",
+      title1: "Boostez votre entreprise",
       titleAccent: "avec l'intelligence artificielle",
       subtitle: "Nous combinons stratégie d'affaires, données et IA pour transformer votre organisation. Solutions souveraines, conformes et hébergées localement au Canada.",
       cta2: "Découvrir nos solutions avec un expert",
@@ -208,7 +208,7 @@ export const translations = {
     },
     hero: {
       badge: "AI Solutions developed in Quebec 🇨🇦",
-      title1: "Propel your business",
+      title1: "Boost your business",
       titleAccent: "with artificial intelligence",
       subtitle: "We combine business strategy, data and AI to transform your organization. Sovereign, compliant solutions hosted locally in Canada.",
       cta2: "Discover our solutions with an expert",
