@@ -13,7 +13,7 @@ const HeroSection = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-electric/5 blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto text-center lg:text-left">
+        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto text-center lg:text-left">
          <div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
