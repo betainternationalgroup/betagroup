@@ -8,7 +8,7 @@ const HeroSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="top" className="relative min-h-screen flex items-center bg-hero overflow-hidden pt-20">
+    <section id="top" className="relative min-h-screen flex items-center bg-hero overflow-hidden pt-32 md:pt-40">
       {/* Radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-electric/5 blur-[120px] pointer-events-none" />
 
@@ -41,7 +41,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex justify-center lg:justify-start"
+            className="flex flex-wrap gap-3 justify-center lg:justify-start"
           >
             <button
               onClick={() => openZanjForm('contact')}
@@ -55,8 +55,26 @@ const HeroSection = () => {
                 cursor: 'pointer',
               }}
             >
-              ✉ Demandez un Expert
+              {t.hero.expertBtn}
             </button>
+            <a
+              href="https://www.zanj.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: '#fff',
+                color: '#1e3a8a',
+                border: '1px solid #1e3a8a',
+                borderRadius: '8px',
+                padding: '10px 20px',
+                fontSize: '14px',
+                cursor: 'pointer',
+                textDecoration: 'none',
+                display: 'inline-block',
+              }}
+            >
+              {t.hero.tryBtn}
+            </a>
           </motion.div>
 
          </div>
