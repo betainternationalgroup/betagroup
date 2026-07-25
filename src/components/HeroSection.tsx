@@ -102,7 +102,7 @@ const HeroSection = () => {
            initial={{ opacity: 0, y: 40 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.8, delay: 0.9 }}
-           className="grid grid-cols-3 gap-8 mt-2 max-w-xl mx-auto lg:col-start-2 lg:mx-0"
+           className="grid grid-cols-3 gap-8 mt-0 mb-8 max-w-xl mx-auto lg:col-start-2 lg:mx-0"
          >
            {[
              { value: t.hero.stat1, label: t.hero.stat1Label },
