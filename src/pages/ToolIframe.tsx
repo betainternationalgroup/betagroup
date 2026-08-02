@@ -16,16 +16,14 @@ const Inner = ({ src, titleFr, titleEn }: Props) => {
     <>
       <AIBackground />
       <Navbar />
-      <main className="pt-24 pb-16 relative z-10">
-        <div className="container mx-auto px-4 lg:px-8">
-          <iframe
-            src={src}
-            title={title}
-            className="w-full h-[85vh] min-h-[700px] border-0 bg-white"
-            loading="lazy"
-            allow="clipboard-write; fullscreen"
-          />
-        </div>
+      <main className="pt-24 pb-0 relative z-10">
+        <iframe
+          src={src}
+          title={title}
+          className="w-full h-[85vh] min-h-[700px] border-0 block"
+          loading="lazy"
+          allow="clipboard-write; fullscreen"
+        />
       </main>
       <FooterSection />
     </>
