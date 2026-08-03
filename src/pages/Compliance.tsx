@@ -278,7 +278,6 @@ const ComplianceContent = () => {
 
 const Compliance = () => (
   <LanguageProvider>
-    <AIBackground />
     <Navbar />
     <ComplianceContent />
     <FooterSection />
