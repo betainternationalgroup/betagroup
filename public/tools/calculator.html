@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur ROI Agent AI vs Employé - Zanj.ai</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<style>
+:root{--bg-deep:#050810;--border-glow:rgba(56,189,248,.15);--accent-cyan:#22d3ee;--accent-blue:#3b82f6;--text-primary:#e2e8f0;--text-secondary:#94a3b8;--text-muted:#64748b;--success:#34d399;--danger:#f87171}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:radial-gradient(ellipse 80% 50% at 20% 0%,rgba(59,130,246,.15),transparent),radial-gradient(ellipse 80% 50% at 80% 100%,rgba(34,211,238,.1),transparent),linear-gradient(180deg,#000 0%,#050810 50%,#030509 100%);min-height:100vh;padding:20px;color:var(--text-primary)}
+.container{max-width:1400px;margin:0 auto}
+.header{background:linear-gradient(135deg,rgba(15,23,41,.9),rgba(10,15,28,.9));border:1px solid var(--border-glow);backdrop-filter:blur(20px);border-radius:24px;padding:40px;text-align:center;position:relative;margin-bottom:30px}
+.logo-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.3);padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600;color:var(--accent-cyan);text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
+.logo-dot{width:6px;height:6px;background:var(--accent-cyan);border-radius:50%;box-shadow:0 0 10px var(--accent-cyan)}
+.language-toggle{position:absolute;top:24px;right:24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--text-primary);padding:10px 18px;border-radius:12px;cursor:pointer;font-size:13px;font-weight:600}
+.language-toggle:hover{background:rgba(34,211,238,.15);border-color:var(--accent-cyan)}
+h1{font-size:32px;font-weight:800;background:linear-gradient(135deg,#fff 0%,#a5b4fc 50%,var(--accent-cyan) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+#subtitle{color:var(--text-secondary);font-size:15px}
+.main-content{display:grid;grid-template-columns:380px 1fr;gap:24px}
+.calculator-section{background:linear-gradient(180deg,rgba(15,23,41,.7),rgba(10,15,28,.7));border:1px solid var(--border-glow);backdrop-filter:blur(20px);padding:28px;border-radius:20px;height:fit-content}
+.calculator-section h2{font-size:18px;font-weight:700;margin-bottom:24px}
+.section-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:28px 0 16px}
+.section-label.employee{color:var(--danger)}
+.section-label.ai{color:var(--accent-cyan)}
+.section-label:first-of-type{margin-top:0}
+.form-group{margin-bottom:20px}
+label{display:block;margin-bottom:8px;font-weight:500;color:var(--text-secondary);font-size:13px}
+input[type=number]{width:100%;padding:12px 16px;border:1px solid rgba(255,255,255,.1);border-radius:10px;font-size:15px;background:rgba(5,8,16,.6);color:var(--text-primary)}
+input[type=number]:focus{outline:none;border-color:var(--accent-cyan);box-shadow:0 0 0 3px rgba(34,211,238,.1)}
+.input-with-symbol{position:relative}
+.currency-symbol{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-weight:600}
+.input-with-symbol input{padding-left:32px}
+.results-section{display:grid;grid-template-rows:auto auto auto 1fr;gap:24px}
+.comparison-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.comparison-card{background:linear-gradient(180deg,rgba(15,23,41,.7),rgba(10,15,28,.7));border:1px solid var(--border-glow);backdrop-filter:blur(20px);padding:24px;border-radius:18px;position:relative;overflow:hidden}
+.comparison-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.employee-card::before{background:linear-gradient(90deg,#f87171,#fb923c)}
+.ai-card::before{background:linear-gradient(90deg,var(--accent-cyan),var(--accent-blue))}
+.cost-title{font-size:16px;font-weight:700;margin-bottom:18px}
+.employee-card .cost-title{color:#fca5a5}
+.ai-card .cost-title{color:#67e8f9}
+.cost-item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.cost-label{color:var(--text-muted);font-size:13px}
+.cost-value{font-weight:600;font-size:13px}
+.total-cost{font-size:22px;font-weight:800;text-align:center;padding:16px;border-radius:12px;margin-top:16px}
+.employee-card .total-cost{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.2);color:#fca5a5}
+.ai-card .total-cost{background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.2);color:#67e8f9}
+.savings-section{background:linear-gradient(135deg,rgba(34,211,238,.12),rgba(59,130,246,.12));border:1px solid rgba(34,211,238,.3);backdrop-filter:blur(20px);padding:32px;border-radius:20px;text-align:center}
+.savings-amount{font-size:46px;font-weight:900;margin-bottom:8px;background:linear-gradient(135deg,#fff,var(--accent-cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.savings-label{font-size:15px;color:var(--text-secondary);font-weight:600}
+.savings-period{font-size:13px;color:var(--text-muted)}
+.roi-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.metric-card{background:linear-gradient(180deg,rgba(15,23,41,.7),rgba(10,15,28,.7));border:1px solid var(--border-glow);backdrop-filter:blur(20px);padding:22px;border-radius:16px;text-align:center}
+.metric-value{font-size:26px;font-weight:800;color:var(--accent-cyan);margin-bottom:6px}
+.metric-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;font-weight:600}
+.chart-container{background:linear-gradient(180deg,rgba(15,23,41,.7),rgba(10,15,28,.7));border:1px solid var(--border-glow);backdrop-filter:blur(20px);padding:28px;border-radius:20px}
+.info-tooltip{position:relative;color:var(--accent-cyan);cursor:help;margin-left:5px;font-size:11px}
+.tooltip-text{visibility:hidden;width:240px;background:#0a0f1c;border:1px solid var(--border-glow);color:var(--text-primary);text-align:left;border-radius:10px;padding:12px;position:absolute;z-index:10;bottom:130%;left:50%;margin-left:-120px;font-size:12px;font-weight:400;opacity:0;transition:opacity .3s}
+.info-tooltip:hover .tooltip-text{visibility:visible;opacity:1}
+@media (max-width:1024px){.main-content{grid-template-columns:1fr}.comparison-cards{grid-template-columns:1fr}.roi-metrics{grid-template-columns:1fr}}
+@media (max-width:768px){.header{padding:24px}h1{font-size:24px}.language-toggle{position:static;margin-top:16px;display:inline-block}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<button class="language-toggle" onclick="toggleLanguage()">🌐 EN / FR</button>
+<div class="logo-badge"><span class="logo-dot"></span> ZANJ.AI</div>
+<h1 id="main-title">Calculateur ROI: Agent AI vs Employé</h1>
+<p id="subtitle">Découvrez les économies réalisées en remplaçant un employé par un agent IA</p>
+</div>
+<div class="main-content">
+<div class="calculator-section">
+<h2 id="input-title">Paramètres de Comparaison</h2>
+<div class="section-label employee" id="employee-section">💼 Coûts Employé</div>
+<div class="form-group">
+<label id="label-salary">Salaire mensuel brut<span class="info-tooltip">ℹ️<span class="tooltip-text" id="tooltip-salary">Salaire mensuel brut de l'employé avant charges</span></span></label>
+<div class="input-with-symbol"><span class="currency-symbol">$</span><input type="number" id="employeeSalary" value="4000" min="0" oninput="calculateROI()"></div>
+</div>
+<div class="form-group">
+<label id="label-benefits">Avantages sociaux (%)<span class="info-tooltip">ℹ️<span class="tooltip-text" id="tooltip-benefits">Pourcentage du salaire pour les avantages</span></span></label>
+<input type="number" id="employeeBenefits" value="25" min="0" max="100" oninput="calculateROI()">
+</div>
+<div class="form-group">
+<label id="label-overhead">Coûts indirects mensuels<span class="info-tooltip">ℹ️<span class="tooltip-text" id="tooltip-overhead">Bureau, équipement, formation, management</span></span></label>
+<div class="input-with-symbol"><span class="currency-symbol">$</span><input type="number" id="employeeOverhead" value="800" min="0" oninput="calculateROI()"></div>
+</div>
+<div class="section-label ai" id="ai-section">🤖 Coûts Agent IA</div>
+<div class="form-group">
+<label id="label-ai-sub">Abonnement plateforme IA<span class="info-tooltip">ℹ️<span class="tooltip-text" id="tooltip-ai-sub">Coût mensuel de l'abonnement</span></span></label>
+<div class="input-with-symbol"><span class="currency-symbol">$</span><input type="number" id="aiSubscription" value="200" min="0" oninput="calculateROI()"></div>
+</div>
+<div class="form-group">
+<label id="label-ai-dev">Développement/Configuration<span class="info-tooltip">ℹ️<span class="tooltip-text" id="tooltip-ai-dev">Coût mensuel amorti du développement</span></span></label>
+<div class="input-with-symbol"><span class="currency-symbol">$</span><input type="number" id="aiDevelopment" value="300" min="0" oninput="calculateROI()"></div>
+</div>
+<div class="form-group">
+<label id="label-ai-maint">Maintenance et Support<span class="info-tooltip">ℹ️<span class="tooltip-text" id="tooltip-ai-maint">Maintenance, mises à jour, support</span></span></label>
+<div class="input-with-symbol"><span class="currency-symbol">$</span><input type="number" id="aiMaintenance" value="150" min="0" oninput="calculateROI()"></div>
+</div>
+<div class="form-group">
+<label id="label-productivity">Gain de productivité (%)<span class="info-tooltip">ℹ️<span class="tooltip-text" id="tooltip-productivity">Gain vs employé (24/7, sans pause)</span></span></label>
+<input type="number" id="productivityGain" value="40" min="0" max="500" oninput="calculateROI()">
+</div>
+</div>
+<div class="results-section">
+<div class="comparison-cards">
+<div class="comparison-card employee-card">
+<div class="cost-title" id="employee-title">👨‍💼 Coût Employé</div>
+<div class="cost-item"><span class="cost-label" id="salary-label">Salaire brut</span><span class="cost-value" id="salary-value">$0</span></div>
+<div class="cost-item"><span class="cost-label" id="benefits-label">Avantages sociaux</span><span class="cost-value" id="benefits-value">$0</span></div>
+<div class="cost-item"><span class="cost-label" id="overhead-label">Coûts indirects</span><span class="cost-value" id="overhead-value">$0</span></div>
+<div class="total-cost" id="employee-total">$0</div>
+</div>
+<div class="comparison-card ai-card">
+<div class="cost-title" id="ai-title">🤖 Coût Agent IA</div>
+<div class="cost-item"><span class="cost-label" id="ai-sub-label">Abonnement</span><span class="cost-value" id="ai-sub-value">$0</span></div>
+<div class="cost-item"><span class="cost-label" id="ai-dev-label">Développement</span><span class="cost-value" id="ai-dev-value">$0</span></div>
+<div class="cost-item"><span class="cost-label" id="ai-maint-label">Maintenance</span><span class="cost-value" id="ai-maint-value">$0</span></div>
+<div class="total-cost" id="ai-total">$0</div>
+</div>
+</div>
+<div class="savings-section">
+<div class="savings-amount" id="savings-amount">$0</div>
+<div class="savings-label" id="savings-label">Économies Mensuelles</div>
+<div class="savings-period" id="savings-period">Avec gain de productivité inclus</div>
+</div>
+<div class="roi-metrics">
+<div class="metric-card"><div class="metric-value" id="annual-savings">$0</div><div class="metric-label" id="annual-label">Économies Annuelles</div></div>
+<div class="metric-card"><div class="metric-value" id="roi-percentage">0%</div><div class="metric-label" id="roi-label">ROI Mensuel</div></div>
+<div class="metric-card"><div class="metric-value" id="payback-period">0</div><div class="metric-label" id="payback-label">Retour Investissement</div></div>
+</div>
+<div class="chart-container"><canvas id="savingsChart" width="400" height="200"></canvas></div>
+</div>
+</div>
+</div>
+<script>
+let currentLanguage='fr',chart=null;
+const translations={fr:{'main-title':'Calculateur ROI: Agent AI vs Employé','subtitle':"Découvrez les économies réalisées en remplaçant un employé par un agent IA",'input-title':'Paramètres de Comparaison','employee-section':'💼 Coûts Employé','ai-section':'🤖 Coûts Agent IA','label-salary':'Salaire mensuel brut','label-benefits':'Avantages sociaux (%)','label-overhead':'Coûts indirects mensuels','label-ai-sub':'Abonnement plateforme IA','label-ai-dev':'Développement/Configuration','label-ai-maint':'Maintenance et Support','label-productivity':'Gain de productivité (%)','employee-title':'👨‍💼 Coût Employé','ai-title':'🤖 Coût Agent IA','salary-label':'Salaire brut','benefits-label':'Avantages sociaux','overhead-label':'Coûts indirects','ai-sub-label':'Abonnement','ai-dev-label':'Développement','ai-maint-label':'Maintenance','savings-label':'Économies Mensuelles','savings-period':'Avec gain de productivité inclus','annual-label':'Économies Annuelles','roi-label':'ROI Mensuel','payback-label':'Retour Investissement','months':'mois','immediately':'Immédiat'},en:{'main-title':'ROI Calculator: AI Agent vs Employee','subtitle':'Discover the savings achieved by replacing an employee with an AI agent','input-title':'Comparison Parameters','employee-section':'💼 Employee Costs','ai-section':'🤖 AI Agent Costs','label-salary':'Monthly gross salary','label-benefits':'Social benefits (%)','label-overhead':'Monthly indirect costs','label-ai-sub':'AI platform subscription','label-ai-dev':'Development/Configuration','label-ai-maint':'Maintenance & Support','label-productivity':'Productivity gain (%)','employee-title':'👨‍💼 Employee Cost','ai-title':'🤖 AI Agent Cost','salary-label':'Gross salary','benefits-label':'Social benefits','overhead-label':'Indirect costs','ai-sub-label':'Subscription','ai-dev-label':'Development','ai-maint-label':'Maintenance','savings-label':'Monthly Savings','savings-period':'With productivity gain included','annual-label':'Annual Savings','roi-label':'Monthly ROI','payback-label':'Payback Period','months':'months','immediately':'Immediate'}};
+function toggleLanguage(){currentLanguage=currentLanguage==='fr'?'en':'fr';document.documentElement.lang=currentLanguage;for(const[k,v]of Object.entries(translations[currentLanguage])){const e=document.getElementById(k);if(e)e.textContent=v;}calculateROI();}
+function formatCurrency(a){return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:0,maximumFractionDigits:0}).format(a);}
+function calculateROI(){
+const employeeSalary=parseFloat(document.getElementById('employeeSalary').value)||0;
+const employeeBenefits=parseFloat(document.getElementById('employeeBenefits').value)||0;
+const employeeOverhead=parseFloat(document.getElementById('employeeOverhead').value)||0;
+const aiSubscription=parseFloat(document.getElementById('aiSubscription').value)||0;
+const aiDevelopment=parseFloat(document.getElementById('aiDevelopment').value)||0;
+const aiMaintenance=parseFloat(document.getElementById('aiMaintenance').value)||0;
+const productivityGain=parseFloat(document.getElementById('productivityGain').value)||0;
+const benefitsAmount=employeeSalary*(employeeBenefits/100);
+const employeeTotalCost=employeeSalary+benefitsAmount+employeeOverhead;
+const aiTotalCost=aiSubscription+aiDevelopment+aiMaintenance;
+const productivityMultiplier=1+(productivityGain/100);
+const effectiveEmployeeCost=employeeTotalCost*productivityMultiplier;
+const monthlySavings=effectiveEmployeeCost-aiTotalCost;
+const annualSavings=monthlySavings*12;
+const roi=aiTotalCost>0?(monthlySavings/aiTotalCost)*100:0;
+document.getElementById('salary-value').textContent=formatCurrency(employeeSalary);
+document.getElementById('benefits-value').textContent=formatCurrency(benefitsAmount);
+document.getElementById('overhead-value').textContent=formatCurrency(employeeOverhead);
+document.getElementById('employee-total').textContent=formatCurrency(employeeTotalCost);
+document.getElementById('ai-sub-value').textContent=formatCurrency(aiSubscription);
+document.getElementById('ai-dev-value').textContent=formatCurrency(aiDevelopment);
+document.getElementById('ai-maint-value').textContent=formatCurrency(aiMaintenance);
+document.getElementById('ai-total').textContent=formatCurrency(aiTotalCost);
+document.getElementById('savings-amount').textContent=formatCurrency(monthlySavings);
+document.getElementById('annual-savings').textContent=formatCurrency(annualSavings);
+document.getElementById('roi-percentage').textContent=roi.toFixed(1)+'%';
+let paybackText=translations[currentLanguage]['immediately'];
+if(monthlySavings>0){const pm=aiTotalCost/monthlySavings;if(pm>=1)paybackText=`${pm.toFixed(1)} ${translations[currentLanguage]['months']}`;}
+document.getElementById('payback-period').textContent=paybackText;
+updateChart(employeeTotalCost,aiTotalCost,monthlySavings);
+}
+function updateChart(employeeCost,aiCost,savings){
+const ctx=document.getElementById('savingsChart').getContext('2d');
+if(chart)chart.destroy();
+const cum=[];let c=0;for(let i=1;i<=12;i++){c+=savings;cum.push(c);}
+Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='rgba(255,255,255,0.06)';
+chart=new Chart(ctx,{type:'bar',data:{labels:['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'],datasets:[{label:currentLanguage==='fr'?'Coût Employé':'Employee Cost',data:Array(12).fill(employeeCost),backgroundColor:'rgba(248,113,113,0.7)',borderColor:'rgba(248,113,113,1)',borderWidth:1,borderRadius:4},{label:currentLanguage==='fr'?'Coût Agent IA':'AI Agent Cost',data:Array(12).fill(aiCost),backgroundColor:'rgba(34,211,238,0.7)',borderColor:'rgba(34,211,238,1)',borderWidth:1,borderRadius:4},{label:currentLanguage==='fr'?'Économies Cumulées':'Cumulative Savings',data:cum,type:'line',borderColor:'rgba(129,140,248,1)',borderWidth:3,fill:false,tension:.4,pointBackgroundColor:'rgba(129,140,248,1)',pointBorderWidth:0,yAxisID:'y1'}]},options:{responsive:true,plugins:{legend:{position:'top',labels:{color:'#e2e8f0'}},title:{display:true,text:currentLanguage==='fr'?'Comparaison des Coûts et Économies':'Cost Comparison and Savings',color:'#e2e8f0',font:{size:14,weight:'600'}}},scales:{x:{grid:{color:'rgba(255,255,255,0.04)'}},y:{beginAtZero:true,position:'left',grid:{color:'rgba(255,255,255,0.04)'},ticks:{callback:v=>formatCurrency(v)}},y1:{type:'linear',display:true,position:'right',ticks:{callback:v=>formatCurrency(v)},grid:{drawOnChartArea:false}}}}});
+}
+document.addEventListener('DOMContentLoaded',calculateROI);
+</script>
+</body>
+</html>
