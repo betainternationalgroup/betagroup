@@ -23,7 +23,7 @@ const App = () => (
             path="/outils/calculateur"
             element={
               <ToolIframe
-                src="https://www.beta.international/calculator/"
+                src="/tools/calculator.html"
                 titleFr="Calculateur ROI"
                 titleEn="ROI Calculator"
               />
