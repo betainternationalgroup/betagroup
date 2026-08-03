@@ -1,9 +1,12 @@
 import { useLanguage } from "@/hooks/useLanguage";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Linkedin, Mail, Phone, Calendar } from "lucide-react";
 
 const FooterSection = () => {
   const { t } = useLanguage();
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+  const hrefFor = (hash: string) => (isHome ? hash : `/${hash}`);
 
   return (
     <footer className="relative z-10 bg-navy-dark border-t border-primary-foreground/10 py-16">
@@ -33,17 +36,17 @@ const FooterSection = () => {
           <div>
             <h4 className="font-display font-semibold text-primary-foreground mb-4">{t.footer.services}</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/50">
-              <li><a href="#services" className="hover:text-electric transition-colors">{t.services.s1Title}</a></li>
-              <li><a href="#services" className="hover:text-electric transition-colors">{t.services.s2Title}</a></li>
-              <li><a href="#services" className="hover:text-electric transition-colors">{t.services.s3Title}</a></li>
-              <li><a href="#services" className="hover:text-electric transition-colors">{t.services.s5Title}</a></li>
+              <li><a href={hrefFor("#services")} className="hover:text-electric transition-colors">{t.services.s1Title}</a></li>
+              <li><a href={hrefFor("#services")} className="hover:text-electric transition-colors">{t.services.s2Title}</a></li>
+              <li><a href={hrefFor("#services")} className="hover:text-electric transition-colors">{t.services.s3Title}</a></li>
+              <li><a href={hrefFor("#services")} className="hover:text-electric transition-colors">{t.services.s5Title}</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-display font-semibold text-primary-foreground mb-4">{t.footer.company}</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/50">
-              <li><a href="#team" className="hover:text-electric transition-colors">{t.footer.about}</a></li>
+              <li><a href={hrefFor("#team")} className="hover:text-electric transition-colors">{t.footer.about}</a></li>
               <li><a href="#" className="hover:text-electric transition-colors">{t.footer.blog}</a></li>
               <li><Link to="/conformite" className="hover:text-electric transition-colors">Conformité</Link></li>
               <li><a href="#" className="hover:text-electric transition-colors">{t.footer.privacy}</a></li>
