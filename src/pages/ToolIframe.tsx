@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import AIBackground from "@/components/AIBackground";
 import FooterSection from "@/components/FooterSection";
 import { LanguageProvider, useLanguage } from "@/hooks/useLanguage";
 
@@ -14,7 +13,6 @@ const Inner = ({ src, titleFr, titleEn }: Props) => {
   const title = lang === "fr" ? titleFr : titleEn;
   return (
     <>
-      <AIBackground />
       <Navbar />
       <main className="pt-24 pb-0 relative z-10">
         <iframe

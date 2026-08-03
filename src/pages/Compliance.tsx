@@ -1,5 +1,4 @@
 import { LanguageProvider, useLanguage } from "@/hooks/useLanguage";
-import AIBackground from "@/components/AIBackground";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import CalPopupDialog from "@/components/CalPopupDialog";
@@ -278,7 +277,6 @@ const ComplianceContent = () => {
 
 const Compliance = () => (
   <LanguageProvider>
-    <AIBackground />
     <Navbar />
     <ComplianceContent />
     <FooterSection />

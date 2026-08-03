@@ -1,4 +1,3 @@
-import AIBackground from "@/components/AIBackground";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ClientLogos from "@/components/ClientLogos";
@@ -14,7 +13,6 @@ import { LanguageProvider } from "@/hooks/useLanguage";
 const Index = () => {
   return (
     <LanguageProvider>
-      <AIBackground />
       <Navbar />
       <main>
         <HeroSection />
