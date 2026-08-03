@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +16,9 @@ const Navbar = () => {
   const { lang, setLang, t } = useLanguage();
   const [open, setOpen] = useState(false);
   const [calOpen, setCalOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+  const hrefFor = (hash: string) => (isHome ? hash : `/${hash}`);
 
   const links = [
     { href: "#top", label: t.nav.home },
@@ -28,7 +32,7 @@ const Navbar = () => {
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-navy-dark/90 backdrop-blur-xl border-b border-primary/10">
         <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between h-16 lg:h-20">
-          <a href="#" className="flex items-center gap-2">
+          <a href={isHome ? "#top" : "/"} className="flex items-center gap-2">
             <img src={logoImg} alt="Beta International" className="h-9 w-auto" />
             <div className="flex flex-col">
               <span className="font-display text-2xl font-bold text-primary-foreground tracking-tight leading-none">
@@ -43,7 +47,7 @@ const Navbar = () => {
           {/* Desktop */}
           <div className="hidden lg:flex items-center gap-8">
             {links.map((l) => (
-              <a key={l.href} href={l.href} className="text-sm font-medium text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+              <a key={l.href} href={hrefFor(l.href)} className="text-sm font-medium text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 {l.label}
               </a>
             ))}
@@ -83,7 +87,7 @@ const Navbar = () => {
           <div className="lg:hidden bg-navy-dark/95 backdrop-blur-xl border-t border-primary/10 pb-6">
             <div className="container mx-auto px-4 flex flex-col gap-4 pt-4">
               {links.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm font-medium text-primary-foreground/70 hover:text-primary-foreground">
+                <a key={l.href} href={hrefFor(l.href)} onClick={() => setOpen(false)} className="text-sm font-medium text-primary-foreground/70 hover:text-primary-foreground">
                   {l.label}
                 </a>
               ))}
