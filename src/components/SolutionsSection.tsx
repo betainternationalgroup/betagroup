@@ -1,6 +1,7 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import { motion } from "framer-motion";
-import { Bot, Zap } from "lucide-react";
+import { Bot, Zap, ArrowRight, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const SolutionsSection = () => {
   const { t } = useLanguage();
@@ -69,7 +70,7 @@ const SolutionsSection = () => {
                   <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
                     {sol.featuresLabel}
                   </h4>
-                  <ul className="space-y-3 mb-6">
+                  <ul className="space-y-3 mb-8">
                     {sol.features.map((f, fi) => (
                       <li key={fi} className="flex items-start gap-3">
                         <div className="w-5 h-5 rounded-full bg-electric/15 flex items-center justify-center mt-0.5 shrink-0">
@@ -81,10 +82,22 @@ const SolutionsSection = () => {
                   </ul>
 
                   {/* Target audience */}
-                  <div className="rounded-xl bg-secondary/80 p-4">
+                  <div className="rounded-xl bg-secondary/80 p-4 mb-6">
                     <p className="text-sm text-foreground font-medium">
                       🎯 {sol.audience}
                     </p>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button className="flex-1 bg-electric hover:bg-glow text-primary-foreground font-semibold gap-2">
+                      {sol.cta} <ArrowRight className="w-4 h-4" />
+                    </Button>
+                    <a href={sol.platformLink} target="_blank" rel="noopener noreferrer" className="flex-1">
+                      <Button variant="outline" className="w-full gap-2 border-electric/30 text-electric hover:bg-electric/10">
+                        {sol.platformName} <ExternalLink className="w-4 h-4" />
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </motion.div>
