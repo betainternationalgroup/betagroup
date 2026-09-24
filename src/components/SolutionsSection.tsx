@@ -90,9 +90,11 @@ const SolutionsSection = () => {
 
                   {/* CTA */}
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Button className="flex-1 bg-electric hover:bg-glow text-primary-foreground font-semibold gap-2">
-                      {sol.cta} <ArrowRight className="w-4 h-4" />
-                    </Button>
+                    <a href={sol.link} target="_blank" rel="noopener noreferrer" className="flex-1">
+                      <Button className="w-full bg-electric hover:bg-glow text-primary-foreground font-semibold gap-2">
+                        {sol.cta} <ArrowRight className="w-4 h-4" />
+                      </Button>
+                    </a>
                     <a href={sol.platformLink} target="_blank" rel="noopener noreferrer" className="flex-1">
                       <Button variant="outline" className="w-full gap-2 border-electric/30 text-electric hover:bg-electric/10">
                         {sol.platformName} <ExternalLink className="w-4 h-4" />
