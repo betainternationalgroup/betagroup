@@ -1,7 +1,6 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import { motion } from "framer-motion";
-import { Bot, Zap, ArrowRight, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Bot, Zap } from "lucide-react";
 
 const SolutionsSection = () => {
   const { t } = useLanguage();
