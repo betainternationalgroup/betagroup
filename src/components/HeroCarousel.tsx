@@ -15,12 +15,12 @@ const slides: Record<"fr" | "en", Slide[]> = {
   fr: [
     { type: "video", thumbnail: betaPresentation.url, videoId: "tQ3uyVkkSns", alt: "Présentation de Beta International Group, firme en intelligence artificielle au Québec" },
     { type: "video", thumbnail: zanjIntro.url, videoId: "giE7I9iMPfg", alt: "Introduction de Zanj.ai, agent IA de Beta International Group" },
-    { type: "image", src: zanjAgentique.url, alt: "Zanj.ai – L'IA agentique pour les professionnels par Beta International Group" },
+    { type: "video", thumbnail: zanjAgentique.url, videoId: "arJzM-MoKP8", alt: "Zanj.ai – L'IA agentique pour les professionnels par Beta International Group" },
   ],
   en: [
     { type: "video", thumbnail: betaPresentation.url, videoId: "6rklfe9S27o", alt: "Beta International Group presentation – AI firm in Quebec, Canada" },
     { type: "video", thumbnail: zanjIntro.url, videoId: "giE7I9iMPfg", alt: "Introducing Zanj.ai, the AI agent by Beta International Group" },
-    { type: "image", src: zanjAgentique.url, alt: "Zanj.ai – Agentic AI for professionals by Beta International Group" },
+    { type: "video", thumbnail: zanjAgentique.url, videoId: "arJzM-MoKP8", alt: "Zanj.ai – Agentic AI for professionals by Beta International Group" },
   ],
 };
 
