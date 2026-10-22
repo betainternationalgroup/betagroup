@@ -3,26 +3,24 @@ import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
 import VideoDialog from "@/components/VideoDialog";
-import aiAgenticImg from "@/assets/ai-agentic.jpg";
-import aiAgentImg from "@/assets/carousel-ai-agent.jpg";
-import aiCallcenterImg from "@/assets/carousel-ai-callcenter.jpg";
+import betaPresentation from "@/assets/beta-presentation.png.asset.json";
+import zanjIntro from "@/assets/zanj-intro.png.asset.json";
+import zanjAgentique from "@/assets/zanj-agentique.png.asset.json";
 
 type Slide =
-  | { type: "video"; thumbnail: string; videoId: string }
+  | { type: "video"; thumbnail: string; videoId: string; alt: string }
   | { type: "image"; src: string; alt: string };
 
 const slides: Record<"fr" | "en", Slide[]> = {
   fr: [
-    // https://youtu.be/tQ3uyVkkSns?si=4Fjz4J5Jg3l80ap6
-    { type: "video", thumbnail: aiAgenticImg, videoId: "tQ3uyVkkSns" },
-    { type: "video", thumbnail: aiCallcenterImg, videoId: "giE7I9iMPfg" },
-    { type: "image", src: aiAgentImg, alt: "Agent IA – Beta International" },
+    { type: "video", thumbnail: betaPresentation.url, videoId: "tQ3uyVkkSns", alt: "Présentation de Beta International Group, firme en intelligence artificielle au Québec" },
+    { type: "video", thumbnail: zanjIntro.url, videoId: "giE7I9iMPfg", alt: "Introduction de Zanj.ai, agent IA de Beta International Group" },
+    { type: "image", src: zanjAgentique.url, alt: "Zanj.ai – L'IA agentique pour les professionnels par Beta International Group" },
   ],
   en: [
-    // https://youtu.be/6rklfe9S27o?si=keaartpDmVZEUByz
-    { type: "video", thumbnail: aiAgenticImg, videoId: "6rklfe9S27o" },
-    { type: "video", thumbnail: aiCallcenterImg, videoId: "giE7I9iMPfg" },
-    { type: "image", src: aiAgentImg, alt: "AI Agent – Beta International" },
+    { type: "video", thumbnail: betaPresentation.url, videoId: "6rklfe9S27o", alt: "Beta International Group presentation – AI firm in Quebec, Canada" },
+    { type: "video", thumbnail: zanjIntro.url, videoId: "giE7I9iMPfg", alt: "Introducing Zanj.ai, the AI agent by Beta International Group" },
+    { type: "image", src: zanjAgentique.url, alt: "Zanj.ai – Agentic AI for professionals by Beta International Group" },
   ],
 };
 
@@ -67,7 +65,7 @@ const HeroCarousel = () => {
           >
             <img
               src={currentSlide.type === "video" ? currentSlide.thumbnail : currentSlide.src}
-              alt={currentSlide.type === "video" ? "Video thumbnail" : currentSlide.alt}
+              alt={currentSlide.alt}
               className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
             />
             {currentSlide.type === "video" && (

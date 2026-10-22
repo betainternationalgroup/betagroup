@@ -1,9 +1,9 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import { motion } from "framer-motion";
-import { MapPin, Shield, Award, Handshake, Linkedin, CheckCircle, Users } from "lucide-react";
+import { MapPin, Shield, Award, Handshake, Linkedin, CheckCircle, Users, Newspaper, ExternalLink } from "lucide-react";
 
 const WhySection = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const items = [
     { icon: MapPin, title: t.why.w1Title, desc: t.why.w1Desc },
@@ -94,7 +94,28 @@ const WhySection = () => {
           ))}
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto space-y-6">
+          <motion.a
+            href="https://www.lesaffaires.com/dossiers/mois-du-genie-lheure-est-a-la-releve/lia-ne-transforme-pas-les-entreprises-cest-lhumain-qui-le-fait/"
+            target="_blank"
+            rel="noopener"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center gap-4 p-5 rounded-2xl bg-electric/10 border border-electric/30 hover:border-electric transition-colors"
+          >
+            <Newspaper className="w-7 h-7 text-electric shrink-0" />
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-electric mb-1">
+                {lang === "fr" ? "Dans les médias — Les Affaires" : "In the media — Les Affaires"}
+              </p>
+              <p className="text-primary-foreground font-medium text-sm">
+                « L'IA ne transforme pas les entreprises, c'est l'humain qui le fait »
+              </p>
+            </div>
+            <ExternalLink className="w-4 h-4 text-primary-foreground/60 ml-auto shrink-0" />
+          </motion.a>
+
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
