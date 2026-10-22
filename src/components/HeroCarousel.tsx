@@ -19,8 +19,8 @@ const slides: Record<"fr" | "en", Slide[]> = {
   ],
   en: [
     { type: "video", thumbnail: betaPresentation.url, videoId: "6rklfe9S27o", alt: "Beta International Group presentation – AI firm in Quebec, Canada" },
-    { type: "video", thumbnail: zanjIntro.url, videoId: "giE7I9iMPfg", alt: "Introducing Zanj.ai, the AI agent by Beta International Group" },
-    { type: "video", thumbnail: zanjAgentique.url, videoId: "arJzM-MoKP8", alt: "Zanj.ai – Agentic AI for professionals by Beta International Group" },
+    { type: "video", thumbnail: zanjIntro.url, videoId: "7-pd11mUmqw", alt: "Introducing Zanj.ai, the AI agent by Beta International Group" },
+    { type: "video", thumbnail: zanjAgentique.url, videoId: "F36B3wWjvc0", alt: "Zanj.ai – Agentic AI for professionals by Beta International Group" },
   ],
 };
 
